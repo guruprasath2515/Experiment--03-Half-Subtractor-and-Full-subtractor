@@ -32,12 +32,47 @@ Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 Write the detailed procedure here 
 
 
-## Program:
-/*
-Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+## Program
+HALF SUB
+````
+module halfsub(a,b,differ,borrow);
+input a,b;
+output differ,borrow;
+xor(differ,a,b);
+assign borrow = ~a & b;
+endmodule
+````
+FULL SUB
+````
+module fullsub(a,b,c,borrow,differ);
+input a,b,c;
+output borrow,differ;
+xor(differ,a,b,c);
+assign borrow = (~a)&c | (~a)&b | (b&c);
+endmodule
+````
+HALF SUB TRUTH TABLE
+
+![WhatsApp Image 2024-01-02 at 14 22 36_6698c9d8](https://github.com/guruprasath2515/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/155418874/e93b15fc-586b-484f-b99b-023ef141ae79)
+
+FULL SUB TRUTH TABLE
+
+![WhatsApp Image 2024-01-02 at 14 23 10_3b0ba0a2](https://github.com/guruprasath2515/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/155418874/b14ec254-7b96-4b96-b3f7-712c59021eee)
+RTL VIEWER
+HALF SUB
+![WhatsApp Image 2024-01-02 at 14 24 07_da421f2f](https://github.com/guruprasath2515/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/155418874/c2413e13-9fe3-45e5-a41f-c3d450f887e5)
+
+FULL SUB
+
+![WhatsApp Image 2024-01-02 at 14 25 25_e4ba737b](https://github.com/guruprasath2515/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/155418874/5b2fb17c-43db-4803-a322-8574e2bf2db5)
+WAVEFORM
+HALF SUB
+
+![WhatsApp Image 2024-01-02 at 14 26 17_34f07714](https://github.com/guruprasath2515/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/155418874/6a378a59-5a3a-4661-acae-99436d358289)
+FULL SUB
+
+![WhatsApp Image 2024-01-02 at 14 26 55_48f6b3ae](https://github.com/guruprasath2515/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/155418874/69c39ef5-d776-4217-869b-9abeda917c35)
+
 
 ## Output:
 
